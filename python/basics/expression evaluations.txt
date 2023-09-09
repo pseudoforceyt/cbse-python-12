@@ -1,0 +1,61 @@
+Python 3.9.8 (tags/v3.9.8:bb3fdcf, Nov  5 2021, 20:48:33) [MSC v.1929 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> -8%2*4+3**2
+9
+>>> 20>10 or 9/0+2
+True
+>>> 20>10 and 9/0+2
+Traceback (most recent call last):
+  File "<pyshell#2>", line 1, in <module>
+    20>10 and 9/0+2
+ZeroDivisionError: division by zero
+>>> a,b=2,4
+>>> c=a+b*2//a**2-b/5/b**3
+>>> c
+3.9875
+>>> print c
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(c)?
+>>> print(c)
+3.9875
+>>> a
+2
+>>> b
+4
+>>> c
+3.9875
+>>> c=a+b*2//a**2-b/5%b**3
+>>> c
+3.2
+>>> s="python"
+>>> print(s[0]+s[3]-s[2])
+Traceback (most recent call last):
+  File "<pyshell#14>", line 1, in <module>
+    print(s[0]+s[3]-s[2])
+TypeError: unsupported operand type(s) for -: 'str' and 'str'
+>>> print(ord(s[0])+ord(s[3])-ord(s[2]))
+100
+>>> s="Python"
+>>> print(ord(s[0])+ord(s[3])-ord(s[2]))
+68
+>>> '' or "AGENDA"
+'AGENDA'
+>>> "ABC" or ''
+'ABC'
+>>> bool('')
+False
+>>> bool(' \')
+     
+SyntaxError: EOL while scanning string literal
+>>> bool(' ')
+True
+>>> bool([])
+False
+>>> bool(())
+False
+>>> bool({})
+False
+>>> bool((29))
+True
+>>> bool("ABC")
+True
+>>> 
