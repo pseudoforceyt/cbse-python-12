@@ -1,15 +1,6 @@
 import mysql.connector as sqltor
 
-def prettyprint(L):
-    print("\n\t%-10s"%"Tid.","%-15s"%"Name","%-9s"%"Age","%-25s"%"Department","%-0s"%"DateofJoin","%-15s"%"Salary","%-10s"%"Gender","%-15s"%"Place")
-    for row in L:
-        print("\t%-10s"%row[0],"%-15s"%row[1],"%-9s"%row[2],"%-25s"%row[3],"%-20s"%row[4],"%-15s"%row[5],"%-10s"%row[6],"%-15s"%row[7])
-def highest_salary(L):
-    print("\n\t%-25s"%"Department","%-15s"%"Highest Salary")
-    for row in L:
-        print("\t%-25s"%row[0],"%-15s"%row[1])
-
-mycon=sqltor.connect(host='localhost', user='root', passwd='2240026', database='school_stuff')
+mycon=sqltor.connect(host='localhost', user='root', passwd='mvmsss', database='xiia1010')
 if mycon.is_connected():
     print("Connection Established to Database")
 cur=mycon.cursor()
@@ -26,9 +17,40 @@ query2=cur.fetchall()
 cur.execute("SELECT DEPARTMENT, MAX(SALARY) FROM TEACHER GROUP BY DEPARTMENT")
 query3=cur.fetchall()
 print("\n3. Teachers belonging to Delhi:\n")
-prettyprint(query1)
+for i in query1:
+    print(i)
 print("\n4. Updation of Salary\n")
-prettyprint(query2)
+for i in query2:
+    print(i)
 print("\n5. Highest Salary Department Wise:\n")
-highest_salary(query3)
+for i in query3:
+    print(i)
 mycon.close()
+
+""" OUTPUT:
+Connection Established to Database
+Successfully
+1. Created Table
+2. Inserted given values
+
+
+3. Teachers belonging to Delhi:
+
+(1, 'JUGAL', 34, 'COMPUTER SCIENCE', datetime.date(2017, 10, 1), 12000, 'M', 'DELHI')
+(3, 'SANDEEP', 32, 'MATHEMATICS', datetime.date(2016, 12, 12), 30000, 'M', 'DELHI')
+(5, 'RAKESH', 42, 'MATHEMATICS', datetime.date(2007, 9, 5), 25000, 'M', 'DELHI')
+
+4. Updation of Salary
+
+(1, 'JUGAL', 34, 'COMPUTER SCIENCE', datetime.date(2017, 10, 1), 13200, 'M', 'DELHI')
+(2, 'SHARMILA', 31, 'HISTORY', datetime.date(2008, 3, 24), 20000, 'F', 'RAJPUR')
+(3, 'SANDEEP', 32, 'MATHEMATICS', datetime.date(2016, 12, 12), 30000, 'M', 'DELHI')
+(4, 'SANGEETA', 35, 'HISTORY', datetime.date(2014, 7, 1), 40000, 'F', 'CHENNAI')
+(5, 'RAKESH', 42, 'MATHEMATICS', datetime.date(2007, 9, 5), 25000, 'M', 'DELHI')
+
+5. Highest Salary Department Wise:
+
+('COMPUTER SCIENCE', 13200)
+('HISTORY', 40000)
+('MATHEMATICS', 30000)
+"""
