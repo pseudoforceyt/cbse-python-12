@@ -1,0 +1,9 @@
+File Handling in python
+It is used to Handle Files using python
+Handling files is easy in python
+Step 1: Handle the file
+Step 2: Handle the file in python
+Handling files is good for health
+Healthy people care about their health
+So they use python file handling to handle their health
+Thankyou
