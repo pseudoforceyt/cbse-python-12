@@ -7,5 +7,7 @@ def linehealth():
                 array += [i]
     return array
 
-
-print(linehealth())
+lines = linehealth()
+print("Lines containing health at the end:\n")
+for i in lines:
+    print(i)
