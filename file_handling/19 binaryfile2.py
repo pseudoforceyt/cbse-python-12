@@ -11,6 +11,7 @@ while flag.lower() == 'y':
     Modelname = input("Model name: ")
     megapixel = int(input("Camera Megapixels: "))
     pickle.dump([ModelNo, memorycard, Modelname, megapixel], f)
+    flag = input('Continue? (y/N) > ')
 else:
     f.close()
 
@@ -20,7 +21,6 @@ search = input("Enter model no. of mobile whose megapixel to be updated: ")
 records = list()
 while True:
     try:
-        cur = f.tell()
         rec = pickle.load(f)
         if rec[0] == search:
             rec[3] = int(input("New Camera Megapixels: "))
@@ -35,3 +35,11 @@ f = open("Mobile.DAT", "wb+")
 f.seek(0)
 for i in records:
     pickle.dump(i, f)
+f.close()
+
+with open("Mobile.DAT", "rb") as f:
+    try:
+        while True:
+            print(pickle.load(f))
+    except EOFError:
+        pass
