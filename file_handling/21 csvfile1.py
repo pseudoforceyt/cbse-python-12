@@ -17,13 +17,15 @@ def enter(n, w):
     print("Complete.")
 
 def showtoppers(f):
-    print("\nRno\tName\t\t\tEnglish\tCS\tMaths\tPhysics\tChemistry\tAverage")
     r = csv.reader(f)
-    r = next(r)
-    for i in r:
-        if i[-1] > 85:
-            print(f"\n{i[0]}\t{i[1]}\t\t\t{i[2]}\t{i[3]}\t{i[4]}\t{i[5]}\t{i[6]}\t{i[7]}")
-
+    try:
+        r = next(r)
+        print("\nRno\tName\t\t\tEnglish\tCS\tMaths\tPhysics\tChemistry\tAverage")
+        for i in r:
+            if i[-1] > 85:
+                print(f"\n{i[0]}\t{i[1]}\t\t\t{i[2]}\t{i[3]}\t{i[4]}\t{i[5]}\t{i[6]}\t{i[7]}")
+    except StopIteration:
+        print("No records")
 
 f = open("Student.csv", "w+", newline='')
 w = csv.writer(f)
