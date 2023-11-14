@@ -21,13 +21,13 @@ def DoShow(Customer):
         print(i)
 
 Customer = list()
+print("Operations:")
+print("\t1. Push to customer stack")
+print("\t2. Pop from customer stack")
+print("\t3. Show customer stack")
+print("\t4. Exit")
 while True:
     print("What would you like to do?")
-    print("1. Push to customer stack")
-    print("2. Pop from customer stack")
-    print("3. Show customer stack")
-    print("4. Exit")
-
     ch = int(input("> "))
     if ch == 1:
         DoPush(Customer)
