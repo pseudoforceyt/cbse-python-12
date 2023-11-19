@@ -12,11 +12,12 @@ def Pop_and_Display():
 SCORE = {"KAPIL":40, "SACHIN":55, "SAURAV":80, "RAHUL":35, "YUVRAJ":110}
 stk = list()
 
+print("Operations:")
+print("\t1. Push players to stack (Score > 49)")
+print("\t2. Pop player from stack")
+print("\t3. Exit")
 while True:
     print("What would you like to do?")
-    print("1. Push players to stack")
-    print("2. Pop player from stack")
-    print("3. Exit")
     ch = int(input("> "))
 
     if ch == 1:
